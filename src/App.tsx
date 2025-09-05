@@ -1,44 +1,43 @@
-import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom"
-import { AuthContext } from "./contexts/AuthContext";
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Footer from './components/footer/Footer'
+import { AuthProvider } from './contexts/AuthContext'
+import Cadastro from './pages/cadastro/Cadastro'
+import Home from './pages/home/Home'
+import Login from './pages/login/Login'
+import FormPostagem from './components/postagem/formpostagem/FormPostagem'
+import ListaTemas from './components/listatemas/ListaTemas'
+import FormTema from './components/formtema/FormTema'
+import DeletarTema from './components/deletartema/DeletarTema'
+import ListaPostagens from './components/postagem/listapostagens/ListaPostagens'
+import Navbar from './components/navbar/NavBar'
+import DeletarPostagem from './components/postagem/deletarpostagem/DeletarPostagem'
 
-interface AuthContextType {
-    handleLogout: () => void;
-    // add other properties if needed
+function App() {
+	return (
+		<>
+			<AuthProvider>
+				<BrowserRouter>
+					<Navbar />
+					<div className="min-h-[80vh]">
+						<Routes>
+							<Route path="/" element={<Login />} />
+							<Route path="/home" element={<Home />} />
+							<Route path="/cadastro"	element={<Cadastro />}/>
+							<Route path="/temas" element={<ListaTemas />} />
+							<Route path="/cadastrartema" element={<FormTema />} />
+							<Route path="/editartema/:id" element={<FormTema />} />
+							<Route path="/deletartema/:id" element={<DeletarTema />} />
+							<Route path="/postagens" element={<ListaPostagens />} />
+							<Route path="/cadastrarpostagem" element={<FormPostagem />} />
+							<Route path="/editarpostagem/:id" element={<FormPostagem />} />
+                            <Route path="/deletarpostagem/:id" element={<DeletarPostagem />} />
+						</Routes>
+					</div>
+					<Footer />
+				</BrowserRouter>
+			</AuthProvider>
+		</>
+	)
 }
 
-function Navbar() {
-
-    const navigate = useNavigate();
-
-    const { handleLogout } = useContext(AuthContext) as AuthContextType;
-
-    function logout() {
-
-        handleLogout()
-        alert('O Usuário foi desconectado com sucesso!')
-        navigate('/')
-    }
-
-    return (
-        <>
-            <div className='w-full flex justify-center py-4
-            			   bg-indigo-900 text-white'>
-            
-                <div className="container flex justify-between text-lg mx-8">
-                    <Link to='/home' className="text-2xl font-bold">Blog Pessoal</Link>
-
-                    <div className='flex gap-4'>
-                        <Link to='/postagens' className='hover:underline'>Postagens</Link>
-                        <Link to='/temas' className='hover:underline'>Temas</Link>
-                        <Link to='/cadastrartema' className='hover:underline'>Cadastrar tema</Link>
-                        Perfil
-                        <Link to='' onClick={logout} className='hover:underline'>Sair</Link>
-                    </div>
-                </div>
-            </div>
-        </>
-    )
-}
-
-export default Navbar
+export default App;
