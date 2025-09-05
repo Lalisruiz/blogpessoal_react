@@ -10,7 +10,7 @@
 
 ## Descrição
 
-O **Blog Pessoal - Frontend** é uma aplicação web desenvolvida com **React** e **TypeScript**, que consome uma API REST feita em **Spring Boot**. Permite visualizar, criar, editar e excluir postagens de blog, categorizadas por temas e vinculadas a usuários autenticados.
+O **Blog Pessoal - Frontend** é uma aplicação web desenvolvida com **React** e **TypeScript**. Ela oferece uma interface moderna e responsiva para usuários interagirem com o blog, permitindo visualizar, criar, editar e excluir postagens, além de gerenciar temas e perfis de usuário. Todas as operações são realizadas através de integração com uma API REST, garantindo persistência e segurança dos dados.
 
 ---
 
@@ -132,85 +132,11 @@ O componente **DeletarPostagem** permite ao usuário excluir uma postagem do blo
 npm install
 npm run dev
 ```
+
 Acesse o endereço mostrado no terminal (ex: http://localhost:5173/).
 
-## Funcionalidades
+---
 
-- Autenticação de usuários
-- Visualização, criação, edição e exclusão de postagens
-- Cadastro, edição e exclusão de temas
-- Listagem de postagens e temas
-- Perfil do usuário
-- Feedback visual com loaders
+## Autoria
 
-## Estrutura de Pastas
-
-```
-src/
-     components/
-          navbar/         # Barra de navegação
-          footer/         # Rodapé
-          postagem/
-               cardpostagem/ # Card visual de cada postagem
-               listapostagens/ # Lista de postagens
-          listatemas/     # Lista de temas
-          cardtema/       # Card visual de cada tema
-          formtema/       # Formulário de tema
-          deletartema/    # Exclusão de tema
-     contexts/         # Contexto de autenticação
-     models/           # Modelos TypeScript (Postagem, Tema, Usuario)
-     pages/            # Páginas principais (Home, Cadastro, Login)
-     services/         # Serviços de integração com API
-     App.tsx           # Componente principal
-     main.tsx          # Ponto de entrada
-```
-
-## Principais Componentes
-
-- **Navbar**: Navegação entre páginas
-- **Footer**: Links sociais e copyright
-- **CardPostagem**: Exibe detalhes de cada postagem
-- **ListaPostagens**: Mostra todas as postagens
-- **CardTema**: Exibe detalhes de cada tema
-- **ListaTemas**: Mostra todos os temas
-- **FormTema**: Cadastro/edição de temas
-- **DeletarTema**: Confirmação de exclusão de tema
-
-## Dependências
-
-- React 19
-- Vite 7
-- TypeScript 5
-- React Router DOM 7
-- Axios
-- React Spinners
-- Phosphor Icons
-
-## Como rodar o projeto
-
-```bash
-npm install
-npm run dev
-```
-Acesse o endereço mostrado no terminal (ex: http://localhost:5173/).
-
-## Card de Postagem
-
-O componente **Card de Postagem** é responsável por exibir as informações de cada post do blog de forma visual e organizada. Ele pode mostrar título, conteúdo, autor, data e botões de ação (editar, deletar, visualizar). Normalmente é utilizado dentro de listas de postagens, facilitando a navegação e interação do usuário com os posts.
-
-### Exemplo de uso
-
-```jsx
-<CardPostagem
-     postagem={{
-          id: 1,
-          titulo: "Meu primeiro post",
-          texto: "Conteúdo do post...",
-          data: "2025-09-05T12:00:00Z",
-          tema: { id: 1, descricao: "React" },
-          usuario: { id: 1, nome: "João", usuario: "joao", foto: "url", senha: "", postagem: [] }
-     }}
-/>
-```
-
-Adapte as props conforme a estrutura do seu projeto.
+Desenvolvido por [Larissa Ruiz](https://www.linkedin.com/in/larissa-r-ruiz/)
